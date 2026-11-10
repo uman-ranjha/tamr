@@ -1,3 +1,5 @@
+[![CI](https://github.com/uman-ranjha/tamr/actions/workflows/ci.yml/badge.svg)](https://github.com/uman-ranjha/tamr/actions/workflows/ci.yml)
+
 # Tamr
 
 Version 3.8.0.
