@@ -16,7 +16,7 @@ for (const f of FIELDS) { const el = $(f); el.type === 'checkbox' ? (el.checked 
 const METHOD_NAMES = Object.fromEntries([...$('method').options].map(o => [o.value, o.textContent]));
 function showPlace() {
   const cc = $('cc').value;
-  $('placeNow').textContent = $('place').value || '—';
+  $('placeNow').textContent = $('place').value || '-';
   const lat = parseFloat($('lat').value), lng = parseFloat($('lng').value);
   $('placeMeta').textContent = Number.isFinite(lat) && Number.isFinite(lng) ? ` · ${lat.toFixed(2)}, ${lng.toFixed(2)}` : '';
   $('methodAuto').textContent = t('o_automatic', { x: METHOD_NAMES[methodFor(cc)] });
