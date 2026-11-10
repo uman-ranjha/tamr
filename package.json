@@ -1,0 +1,7 @@
+{
+  "name": "tamr",
+  "private": true,
+  "type": "module",
+  "description": "Only here so `npm test` can run the checks in tests/. Chrome ignores this file; it is not part of the store zip.",
+  "scripts": { "test": "node tests/run.js" }
+}

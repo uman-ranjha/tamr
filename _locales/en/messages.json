@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Tamr – Prayer Times & Salah Reminder"
+  },
+  "appShortName": {
+    "message": "Tamr"
+  },
+  "appDesc": {
+    "message": "Reminds you when it's time to pray, and shows prayer times and a daily verse on your new tab."
+  },
+  "actionTitle": {
+    "message": "Tamr"
+  }
+}

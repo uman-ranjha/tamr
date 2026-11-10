@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Tab</title>
+<link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true">
+  <div class="layer night" data-l="night">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs><radialGradient id="halo"><stop offset=".4" stop-color="#f3e6b0" stop-opacity=".10"/><stop offset="1" stop-color="#f3e6b0" stop-opacity="0"/></radialGradient></defs>
+      <g fill="#f3ead2">
+      <circle cx="120" cy="100" r="2.5" opacity="0.8" class="tw" style="animation-delay:0.0s"/>
+      <circle cx="260" cy="220" r="1.8" opacity="0.5"/>
+      <circle cx="400" cy="60" r="2.7" opacity="0.9"/>
+      <circle cx="600" cy="160" r="1.8" opacity="0.6"/>
+      <circle cx="840" cy="80" r="2.2" opacity="0.7" class="tw" style="animation-delay:2.8s"/>
+      <circle cx="1000" cy="240" r="2.1" opacity="0.5"/>
+      <circle cx="1120" cy="56" r="2.7" opacity="0.8"/>
+      <circle cx="180" cy="400" r="1.8" opacity="0.4"/>
+      <circle cx="1320" cy="360" r="2.1" opacity="0.5" class="tw" style="animation-delay:5.6s"/>
+      <circle cx="60" cy="600" r="1.8" opacity="0.4"/>
+      <circle cx="1380" cy="640" r="1.8" opacity="0.4"/>
+      <circle cx="720" cy="300" r="1.5" opacity="0.4"/>
+      <circle cx="940" cy="420" r="1.5" opacity="0.35" class="tw" style="animation-delay:8.4s"/>
+      <circle cx="330" cy="520" r="1.5" opacity="0.35"/>
+      <circle cx="1180" cy="500" r="1.8" opacity="0.45"/>
+      <circle cx="520" cy="380" r="1.4" opacity="0.35"/>
+      </g>
+      <circle cx="1280" cy="140" r="60" fill="url(#halo)"/>
+      <path d="M1280 112 a28 28 0 1 0 24 44 a22 22 0 1 1 -24 -44z" fill="#f3e6b0"/>
+    </svg>
+  </div>
+  <div class="layer dawn" data-l="dawn"><i class="glow"></i></div>
+  <div class="layer day" data-l="day"><i class="glow"></i></div>
+  <div class="layer golden" data-l="golden"><i class="glow"></i></div>
+  <svg class="pattern">
+    <defs><pattern id="star" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M28 6 l6.4 15.6 15.6 6.4 -15.6 6.4 -6.4 15.6 -6.4 -15.6 -15.6 -6.4 15.6 -6.4z" fill="none" stroke="#e0b75a" stroke-width=".8"/>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#star)"/>
+  </svg>
+</div>
+
+<header class="top">
+  <span id="date"></span>
+  <nav class="glinks" id="glinks" aria-label="Google">
+    <a href="https://mail.google.com/">Gmail</a>
+    <a href="https://www.google.com/imghp">Images</a>
+  </nav>
+</header>
+
+<main class="center">
+  <div class="clock"><span id="time">&nbsp;</span><span id="ampm"></span></div>
+  <div class="greet" id="greet">&nbsp;</div>
+
+  <form id="search" role="search">
+    <label class="sbar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5a6b68" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search the web or type a URL" aria-label="Search the web or type a URL" data-i18n-ph="search_ph" data-i18n-aria="search_ph" autocomplete="off" autofocus>
+      <button type="submit" data-i18n="search_btn">Search</button>
+    </label>
+  </form>
+
+  <div class="prayer" id="prayer">
+    <div class="tbuddy" id="tbuddy" hidden></div>
+    <button class="pill" id="pill" aria-expanded="false" aria-controls="plist">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="11.5" fill="none" stroke="#22605d" stroke-width="3.5"/>
+        <circle id="ring" cx="15" cy="15" r="11.5" fill="none" stroke="#e0b75a" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="72.26" stroke-dashoffset="72.26" transform="rotate(-90 15 15)"/>
+      </svg>
+      <span id="pilltext"></span>
+      <span class="dots" id="dots" aria-hidden="true"></span>
+      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a9c6c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <button class="prayed" id="prayed" hidden></button>
+    <div class="plist" id="plist" hidden></div>
+  </div>
+
+  <nav class="shortcuts" id="shortcuts" aria-label="Shortcuts" data-i18n-aria="shortcuts"></nav>
+
+  <section class="daily" id="daily">
+    <div class="bubble" id="bubble" hidden></div>
+    <button class="miswak" id="miswak" aria-label="Miswak" data-i18n-aria="miswak"></button>
+    <div class="card">
+      <div class="tabs" role="tablist" aria-label="Daily card">
+        <button role="tab" data-tab="verse" data-i18n="tab_verse">Verse</button>
+        <button role="tab" data-tab="dua" data-i18n="tab_dua">Dua</button>
+        <button role="tab" data-tab="name" data-i18n="tab_name">Name of Allah</button>
+      </div>
+      <p class="ar" id="ar" lang="ar" dir="rtl"></p>
+      <p class="tr" id="tr"></p>
+      <p class="en" id="en"></p>
+      <div class="meta" id="meta"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span></span>
+  <button class="custbtn" id="custbtn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span data-i18n="customize">Customize</span></button>
+</footer>
+
+<dialog id="panel" class="panel">
+  <form method="dialog" id="panelform">
+    <h2 data-i18n="customize">Customize</h2>
+    <label class="field"><span data-i18n="c_name">Your name</span> <input type="text" id="c-name" placeholder="Shown in the greeting" data-i18n-ph="c_name_ph" maxlength="30"></label>
+    <label class="field"><span data-i18n="c_lang">Language</span> <select id="c-lang"></select></label>
+    <fieldset>
+      <legend data-i18n="c_show">Show on the page</legend>
+      <label class="tog"><input type="checkbox" data-k="glinks"> <span data-i18n="c_glinks">Gmail &amp; Images links</span></label>
+      <label class="tog"><input type="checkbox" data-k="prayer"> <span data-i18n="c_prayer">Prayer line</span></label>
+      <label class="tog"><input type="checkbox" data-k="shortcuts"> <span data-i18n="c_shortcuts">Shortcuts</span></label>
+      <label class="tog"><input type="checkbox" data-k="daily"> <span data-i18n="c_daily">Verse / Dua / Name card</span></label>
+      <label class="tog"><input type="checkbox" data-k="miswak"> <span data-i18n="c_miswak">Miswak</span></label>
+      <label class="tog"><input type="checkbox" data-k="hideseek"> <span data-i18n="c_hideseek">Miswak plays hide &amp; seek</span> <span class="hsn" id="hscount"></span></label>
+      <div class="tryrow"><button type="button" class="ghost" id="hidenow" data-i18n="c_hidenow">Hide now</button></div>
+      <label class="tog"><input type="checkbox" data-k="h24"> <span data-i18n="c_h24">24-hour clock</span></label>
+      <label class="field skyf"><span data-i18n="c_bg">Background</span> <select id="c-sky">
+        <option value="auto" data-i18n="sky_auto">Follows the sky</option><option value="dawn" data-i18n="sky_dawn">Always dawn</option><option value="day" data-i18n="sky_day">Always day</option><option value="golden" data-i18n="sky_golden">Always golden hour</option><option value="night" data-i18n="sky_night">Always night</option>
+      </select></label>
+    </fieldset>
+    <div class="panelfoot"><span class="note" data-i18n="c_saved">Changes save right away.</span><button value="close" class="pbtn" data-i18n="done">Done</button></div>
+  </form>
+</dialog>
+
+<dialog id="adddlg" class="panel small">
+  <form method="dialog" id="addform">
+    <h2 data-i18n="add_title">Add shortcut</h2>
+    <label class="field"><span data-i18n="f_name">Name</span> <input type="text" id="a-name" required maxlength="24"></label>
+    <label class="field"><span data-i18n="f_url">URL</span> <input type="text" id="a-url" required placeholder="example.com"></label>
+    <div class="panelfoot"><button value="cancel" class="ghost" formnovalidate data-i18n="cancel">Cancel</button><button value="ok" class="pbtn" data-i18n="add">Add</button></div>
+  </form>
+</dialog>
+
+<script src="lib/walk.js"></script>
+<script type="module" src="newtab.js"></script>
+</body>
+</html>

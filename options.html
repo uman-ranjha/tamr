@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title data-i18n="o_title">Tamr · Settings</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="opts">
+  <header><div class="who" id="tamr"></div><div><h1 data-i18n="tamr">Tamr</h1><p class="note" data-i18n="o_intro">Set your location and method so the times match your masjid.</p></div></header>
+
+  <h2 data-i18n="o_lang">Language</h2>
+  <label><span data-i18n="o_lang">Language</span> <select id="lang"></select></label>
+
+  <h2 data-i18n="o_loc">Location</h2>
+  <label><span data-i18n="o_auto">Update my location automatically</span> <input type="checkbox" id="auto"></label>
+  <p class="note" data-i18n="o_auto_note">When you travel, the times follow you. Checked at most every few hours, from the new tab.</p>
+  <div class="placebox">
+    <div class="here"><b id="placeNow"></b><span class="note" id="placeMeta"></span></div>
+    <div class="actions"><button class="btn ghost" id="locate" data-i18n="o_locate">Use my current location</button><span class="note" id="locnote"></span></div>
+    <label class="search"><span data-i18n="o_find">Find a city</span> <input type="search" id="city" placeholder="Cairo, Jakarta, Lahore…" data-i18n-ph="o_find_ph" autocomplete="off"></label>
+    <ul class="results" id="results"></ul>
+  </div>
+  <details class="adv"><summary data-i18n="o_coords">Coordinates</summary>
+    <label><span data-i18n="o_place">Place name</span> <input type="text" id="place"></label>
+    <label><span data-i18n="o_coords_l">Coordinates</span> <span class="row2"><input type="number" step="any" id="lat" placeholder="lat"><input type="number" step="any" id="lng" placeholder="lng"></span></label>
+    <input type="hidden" id="cc">
+  </details>
+  <p class="note small" data-i18n="o_privacy">City names come from BigDataCloud and Open-Meteo. Only the city you type, or your coordinates, are sent.</p>
+
+  <h2 data-i18n="o_times">Prayer times</h2>
+  <label><span data-i18n="o_method">Calculation method</span>
+    <select id="method">
+      <option value="auto" id="methodAuto">Automatic</option>
+      <option value="NorthAmerica">ISNA (North America)</option>
+      <option value="MoonsightingCommittee">Moonsighting Committee</option>
+      <option value="MuslimWorldLeague">Muslim World League</option>
+      <option value="Egyptian">Egyptian</option>
+      <option value="Karachi">Karachi</option>
+      <option value="UmmAlQura">Umm al-Qura (Makkah)</option>
+      <option value="Dubai">Dubai</option>
+      <option value="Qatar">Qatar</option>
+      <option value="Kuwait">Kuwait</option>
+      <option value="Singapore">Singapore</option>
+      <option value="Turkey">Turkey</option>
+      <option value="Tehran">Tehran</option>
+    </select></label>
+  <label><span data-i18n="o_asr">Asr</span>
+    <select id="madhab"><option value="auto" id="madhabAuto">Automatic</option><option value="shafi" data-i18n="o_standard">Standard</option><option value="hanafi" data-i18n="o_hanafi">Hanafi</option></select></label>
+  <label><span data-i18n="o_isha">Isha counts as late after</span>
+    <select id="ishaEnd"><option value="midnight" data-i18n="o_midnight">Islamic midnight</option><option value="fajr" data-i18n="o_fajr">Fajr</option></select></label>
+
+  <h2 data-i18n="o_nudges_h">Tamr's nudges</h2>
+  <label><span data-i18n="o_nudges">Nudges on</span> <input type="checkbox" id="nudges"></label>
+  <label><span data-i18n="o_overlay">Walk onto the page (off = regular notifications)</span> <input type="checkbox" id="overlay"></label>
+  <label><span data-i18n="o_backup">Desktop notification when Chrome isn't in front, and for the last 20 min</span> <input type="checkbox" id="desktopBackup"></label>
+  <label><span data-i18n="o_doze">Tamr dozes on the page for a minute after you pray</span> <input type="checkbox" id="doze"></label>
+  <label><span data-i18n="o_wudu">Wudu reminder (minutes before)</span> <input type="number" min="0" max="45" id="wuduMin"></label>
+
+  <h2 data-i18n="o_paused_h">Sites where Tamr stays off the page</h2>
+  <ul class="paused" id="paused"></ul>
+
+  <h2 data-i18n="o_miswak_h">Miswak</h2>
+  <label><span data-i18n="o_adhkar">Morning &amp; evening adhkar</span> <input type="checkbox" id="adhkar"></label>
+  <label><span data-i18n="o_kahf">Surah Al-Kahf on Fridays</span> <input type="checkbox" id="kahf"></label>
+  <label><span data-i18n="o_quran">Daily Qur'an page</span> <input type="checkbox" id="quran"></label>
+  <label><span data-i18n="o_qtime">Qur'an reminder time</span> <input type="time" id="quranTime"></label>
+
+  <h2 data-i18n="o_try">Try it</h2>
+  <p class="note" data-i18n="o_try_note">Press a button, then switch to any normal website tab. The character walks on after 5 seconds. Tests don't mark anything as prayed.</p>
+  <div class="tests">
+    <button class="btn ghost" data-who="tamr" data-stage="wudu" data-i18n="o_t_wudu">Wudu reminder</button>
+    <button class="btn ghost" data-who="tamr" data-stage="start" data-i18n="o_t_adhan">Adhan</button>
+    <button class="btn ghost" data-who="tamr" data-stage="half" data-i18n="o_t_half">Halfway</button>
+    <button class="btn ghost" data-who="tamr" data-stage="late" data-i18n="o_t_late">20 min left</button>
+    <button class="btn ghost" data-who="tamr" data-stage="oops" data-i18n="o_t_oops">Kufi slip</button>
+    <button class="btn ghost" data-who="miswak" data-stage="morning" data-i18n="o_t_madhkar">Miswak: adhkar</button>
+    <button class="btn ghost" data-who="miswak" data-stage="quran" data-i18n="o_t_mquran">Miswak: Qur'an</button>
+  </div>
+  <p class="note" id="testnote"></p>
+
+  <div class="actions"><button class="btn" id="save" data-i18n="o_save">Save</button><span class="note" id="saved"></span></div>
+</main>
+<script type="module" src="options.js"></script>
+</body>
+</html>

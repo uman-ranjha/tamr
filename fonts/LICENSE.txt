@@ -1,0 +1,5 @@
+Fonts bundled with Tamr, all under the SIL Open Font License 1.1 (https://openfontlicense.org):
+- Amiri Quran: Copyright 2010-2022 The Amiri Project Authors (https://github.com/aliftype/amiri)
+- Newsreader: Copyright 2020 The Newsreader Project Authors (https://github.com/productiontype/Newsreader)
+- Inter: Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+Qur'an text (Uthmani) from The Noble Qur'an Encyclopedia and English translation (Saheeh International) via Tanzil.net, packaged by quran-json.

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appShortName__",
+  "version": "3.8.0",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "permissions": [
+    "alarms",
+    "favicon",
+    "geolocation",
+    "notifications",
+    "scripting",
+    "search",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_actionTitle__",
+    "default_icon": {
+      "16": "img/tamr-happy-16.png",
+      "32": "img/tamr-happy-32.png"
+    }
+  },
+  "icons": {
+    "16": "img/tamr-happy-16.png",
+    "32": "img/tamr-happy-32.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "options_page": "options.html",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
