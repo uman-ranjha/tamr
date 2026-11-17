@@ -10,7 +10,7 @@ He shows up four times per prayer window. First for wudu. Then at adhan. Again h
 
 Miswak is the second character. He lives on the new tab page, with a daily verse, dua, or Name of Allah, plus adhkar, Al-Kahf, and daily Qur'an reminders.
 
-Chrome Web Store: coming soon (in review).
+Chrome Web Store: https://chromewebstore.google.com/detail/tamr-%E2%80%93-prayer-times-salah/fbonnhlaopjbjjlokjhniinhoafjbmfi
 
 Privacy policy: https://uman-ranjha.github.io/tamr-privacy/
 
